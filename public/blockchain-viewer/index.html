@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<header>ciao</header>
+	</head>
+	<body>
+		<div id = "container">
+			<div id = "list">
+				<!-- class="search" automagically makes an input a search field. -->
+  			<input class="search" placeholder="Search" />
+					<!-- class="sort" automagically makes an element a sort buttons. The date-sort value decides what to sort by. -->
+				  <button class="sort" data-sort="prod">
+				    Sort
+				  </button>
+				<!-- Child elements of container with class="list" becomes list items -->
+				  <ul class="list">
+				    <li>
+				<!-- The innerHTML of children with class="name" becomes this items "name" value -->
+				      <h3 class="prod">Jonny Stromberg</h3>
+				      <p class="id">1</p>
+				    </li>
+				    <li>
+				      <h3 class="prod">Jonas Arnklint</h3>
+				      <p class="id">1985</p>
+				    </li>
+				    <li>
+				      <h3 class="prod">Martina Elm</h3>
+				      <p class="id">1986</p>
+				    </li>
+				    <li>
+				      <h3 class="prod">Gustaf Lindqvist</h3>
+				      <p class="id">1983</p>
+				    </li>
+				  </ul>
+			</div>
+			<script src = "https://cdn.jsdelivr.net/npm/web3@0.19.0/dist/web3.min.js"></script>
+			<script src = "https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+			<script type = "text/javascript">
+				let web3
+				if (typeof web3 !== 'undefined') {
+				  web3 = new window.Web3(web3.currentProvider);
+				} else {
+				  web3 = new window.Web3(new window.Web3.providers.HttpProvider("http://localhost:9545"));
+				}
+				console.log(web3)
+				
+				const options = {
+  				valueNames: [ 'prod', 'id' ]
+				}
+
+				const userList = new List('list', options);
+
+			</script>
+		</div>
+	</body>
+</html>
